@@ -8,6 +8,7 @@ using Projects;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 using Users;
 using Swashbuckle.AspNetCore.Swagger;
+using Pivotal.Discovery.Client;
 
 namespace RegistrationServer
 {
@@ -40,6 +41,8 @@ namespace RegistrationServer
             {
                 c.SwaggerDoc("v1", new Info { Title = "Registartion API", Version = "v1" });
             });
+
+            services.AddDiscoveryClient(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +62,7 @@ namespace RegistrationServer
             });
 
             app.UseMvc();
+            app.UseDiscoveryClient();
         }
     }
 }

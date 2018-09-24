@@ -6,7 +6,6 @@ applications:
   routes:
   - route: timesheets-pal-rk.apps.pcfone.io
   path: Applications/TimesheetsServer/bin/Release/netcoreapp2.0/publish
-  env:
-    REGISTRATION_SERVER_ENDPOINT: http://registration-pal-rk.apps.pcfone.io
   services:
   - tracker-timesheets-database
+  - tracker-service-registry

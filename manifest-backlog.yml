@@ -6,7 +6,6 @@ applications:
   routes:
   - route: backlog-pal-rk.apps.pcfone.io
   path: Applications/BacklogServer/bin/Release/netcoreapp2.0/publish
-  env:
-    REGISTRATION_SERVER_ENDPOINT: http://registration-pal-rk.apps.pcfone.io
   services:
   - tracker-backlog-database
+  - tracker-service-registry
