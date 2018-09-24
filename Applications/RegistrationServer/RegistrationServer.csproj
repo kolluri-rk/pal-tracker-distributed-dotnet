@@ -6,6 +6,7 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
     <ProjectReference Include="../../Components/Accounts/Accounts.csproj" />
     <ProjectReference Include="../../Components/Projects/Projects.csproj" />
     <ProjectReference Include="../../Components/Users/Users.csproj" />

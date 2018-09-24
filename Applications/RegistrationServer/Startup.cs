@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Projects;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 using Users;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace RegistrationServer
 {
@@ -33,6 +34,12 @@ namespace RegistrationServer
             services.AddScoped<IProjectDataGateway, ProjectDataGateway>();
             services.AddScoped<IUserDataGateway, UserDataGateway>();
             services.AddScoped<IRegistrationService, RegistrationService>();
+            
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Registartion API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +47,16 @@ namespace RegistrationServer
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Registration API V1");
+            });
 
             app.UseMvc();
         }
