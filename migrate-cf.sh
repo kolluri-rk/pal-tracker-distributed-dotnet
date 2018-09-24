@@ -26,6 +26,11 @@ function openTunnel() {
     local hostname=$1
     local appName=$2
     
+    # cf ssh on PCF One is failing on 1st atempt, but going through on 2nd attempt. so made this change
+    echo "Opening ssh tunnel to ${hostname} using app ${appName} - 1st time"
+    cf ssh -N -L 63306:${hostname}:3306 ${appName} || true
+
+    echo "Opening ssh tunnel to ${hostname} using app ${appName} - 2nd time"
     cf ssh -N -L 63306:${hostname}:3306 ${appName} &
     sleep 5
 }
