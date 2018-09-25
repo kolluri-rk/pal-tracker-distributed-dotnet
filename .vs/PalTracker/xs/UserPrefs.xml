@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{115E2983-51A0-4722-BA01-75223ACC33F8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Components/Timesheets/ProjectClient.cs">
+    <Files>
+      <File FileName="Applications/AllocationsServer/Startup.cs" Line="43" Column="70" />
+      <File FileName="Applications/BacklogServer/Startup.cs" Line="44" Column="38" />
+      <File FileName="Applications/TimesheetsServer/Startup.cs" Line="44" Column="33" />
+      <File FileName="Components/Allocations/ProjectClient.cs" Line="21" Column="62" />
+      <File FileName="Components/Backlog/ProjectClient.cs" Line="45" Column="6" />
+      <File FileName="Components/Timesheets/ProjectClient.cs" Line="11" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Applications.AllocationsServer PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

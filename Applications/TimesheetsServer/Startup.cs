@@ -10,6 +10,7 @@ using Timesheets;
 using Swashbuckle.AspNetCore.Swagger;
 using Pivotal.Discovery.Client;
 using Steeltoe.Common.Discovery;
+using Steeltoe.CircuitBreaker.Hystrix;
 
 namespace TimesheetsServer
 {
@@ -39,7 +40,8 @@ namespace TimesheetsServer
                     BaseAddress = new Uri(Configuration.GetValue<string>("REGISTRATION_SERVER_ENDPOINT"))
                 };
 
-                return new ProjectClient(httpClient);
+                var logger = sp.GetService<ILogger<ProjectClient>>();
+                return new ProjectClient(httpClient, logger);
             });
             
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -49,6 +51,7 @@ namespace TimesheetsServer
             });
 
             services.AddDiscoveryClient(Configuration);
+            services.AddHystrixMetricsStream(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +72,8 @@ namespace TimesheetsServer
 
             app.UseMvc();
             app.UseDiscoveryClient();
+            app.UseHystrixMetricsStream();
+            app.UseHystrixRequestContext();
         }
     }
 }

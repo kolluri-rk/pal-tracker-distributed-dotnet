@@ -10,6 +10,7 @@ using Users;
 using Swashbuckle.AspNetCore.Swagger;
 using Pivotal.Discovery.Client;
 
+
 namespace RegistrationServer
 {
     public class Startup
